@@ -5,7 +5,35 @@ The offline build kit for the Docker image `readystack/netbox:v4.7.4-CE-ubuntu24
 - Release: [v4.7.4-CE-ubuntu24.04-r5](https://github.com/readystack-dev/netbox/releases/tag/v4.7.4-CE-ubuntu24.04-r5)
 - Image: [`docker.io/readystack/netbox:v4.7.4-CE-ubuntu24.04-r5`](https://hub.docker.com/r/readystack/netbox/tags), manifest digest `sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d`
 - Product page: https://readystack.dev/products/netbox
+- Source and build recipe: https://readystack.dev/products/netbox/recipe
+- Build trail: https://readystack.dev/products/netbox/trail/v4.7.4-CE-ubuntu24.04-r5
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=netbox
+
+## The image
+
+ONE product container (supervisord runs the gunicorn web server [:8080] + an RQ worker, which also runs NetBox's scheduled system jobs such as daily housekeeping) PLUS two required datastore sidecars the customer provides: a PostgreSQL server (15 or later — NetBox 4.7 drops PostgreSQL 14 support and needs the trusted `ltree` extension, installed automatically on first migrate) and a Redis instance (6.0 or later; used for both the task queue and caching). NOT a single self-contained image — NetBox is multi-service.
+
+## Who uses NetBox and why
+
+Network engineers and data centre operators who need an accurate record of their network infrastructure.
+
+NetBox is a source of truth for network infrastructure. It models sites, racks, devices, cables, IP addresses, VLANs and circuits, and makes that data available through APIs to automation and monitoring tools.
+
+A typical use: A network team tracks IP addresses in a spreadsheet and rack layouts in diagrams that drift out of date. In NetBox they record every site, rack, device, cable and prefix in one place, and their automation scripts read the intended state through the API instead of guessing it.
+
+From the upstream project's own description: https://github.com/netbox-community/netbox, https://netboxlabs.com/docs/netbox/.
+
+## This release
+
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-23 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+  - Docker Scout counts 48 packages with copyleft licences (GPL, LGPL, MPL), 44 of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
+- Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
+- Runs as a non-root user (`netbox`).
+- Attestations on the image: an SPDX SBOM and SLSA provenance v1.
+- Rebuilt from this kit with network egress blocked on 2026-11-23; the rebuilt image digest is the published one.
+- Base: Ubuntu 24.04.
+
+The current grade, measured again every day, is on https://readystack.dev/products/netbox.
 
 NetBox is distributed under its upstream licence (Apache-2.0); the kit contains upstream's source under that licence, and each vendored component under its own.
 
@@ -39,3 +67,5 @@ The build trail (`ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.trail.json`, signed
 ## This repository
 
 `recipe/` holds the kit's recipe files (Dockerfiles, build scripts, pins) as published at https://readystack.dev/products/netbox/recipe. The complete kit is the release download. Each release is a tag here.
+
+— ReadyStack · https://readystack.dev
