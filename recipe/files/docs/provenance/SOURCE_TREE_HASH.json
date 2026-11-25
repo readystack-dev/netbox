@@ -1,0 +1,9 @@
+{
+  "schema": "kitforge.source_tree_hash.v1",
+  "slug": "netbox",
+  "repo": "https://github.com/netbox-community/netbox",
+  "ref": "v4.7.4",
+  "commit": "9b9844bdbc226bc0bacff6bfdf65a824a4be0eec",
+  "tree_listing_sha256": "3933fbb22c56782410a06d9ce82cd1c7445aea3db4c3c7ee1ebb0baade1d5e15",
+  "file_count": 2306
+}

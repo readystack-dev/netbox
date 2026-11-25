@@ -1,0 +1,336 @@
+{
+ "schema": "readystack.recipe.v1",
+ "slug": "netbox",
+ "tag": "v4.7.4-CE-ubuntu24.04-r5",
+ "tarball": "ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.tar.gz",
+ "tarball_sha256": "9bf7618e41ccddf78f91f6b39cf899f99b22da0d49fcc12d724a0a95a1c74e6b",
+ "kit_root": "v4.7.4-CE-ubuntu24.04-r5",
+ "generated_at": "2026-11-23T05:40:55Z",
+ "generator": "KitForge release/recipe_publish.py",
+ "dockerfile": "Dockerfile.offline.pinned",
+ "build_script": "BUILD_OFFLINE.sh",
+ "preview_lines": 24,
+ "pins": {
+  "upstream": {
+   "repo": "https://github.com/netbox-community/netbox",
+   "ref": "v4.7.4",
+   "commit": "9b9844bdbc226bc0bacff6bfdf65a824a4be0eec",
+   "url": "https://github.com/netbox-community/netbox/tree/9b9844bdbc226bc0bacff6bfdf65a824a4be0eec",
+   "from": "docs/provenance/BUILD_RECIPE.json"
+  },
+  "fetches": [
+   {
+    "kind": "git",
+    "url": "https://github.com/netbox-community/netbox",
+    "ref": "v${NETBOX_VERSION}"
+   },
+   {
+    "kind": "http",
+    "url": "https://www.python.org/ftp/python/3.12.16/Python-3.12.16.tar.xz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel/releases/download/v1.5.1/chisel_v1.5.1_linux_amd64.tar.gz"
+   },
+   {
+    "kind": "http",
+    "url": "https://github.com/canonical/chisel-releases/archive/f2600d3aa90123db6d44bb1441a99afc8b5847d9.tar.gz"
+   }
+  ],
+  "bases": [
+   {
+    "ref": "golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea",
+    "image": "golang:1.27.4-bookworm",
+    "digest": "sha256:4fa7c968ba93f1635670522dbb01a2c78150443e1385746924566079f36570ea"
+   },
+   {
+    "ref": "ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289",
+    "image": "ubuntu:24.04",
+    "digest": "sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289"
+   }
+  ],
+  "toolchain": {
+   "buildkit": "moby/buildkit:v0.31.2",
+   "buildkit_image_digest": "sha256:e0e67ea9c4bb07bdef683e29f70f3b623d1eb9c82274a9ec04e6bb0511449fb0"
+  },
+  "build_method": "source-rebuild-python",
+  "source_date_epoch": 1795404129,
+  "source_date_epoch_utc": "2026-11-23T03:22:09Z",
+  "target": {
+   "image_manifest_digest": "sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d",
+   "config_digest": "sha256:4d0719720c0ddc32a7be9513888c711bfe0e238c6086f955e3a2393303495c40",
+   "image": "readystack/netbox:v4.7.4-CE-ubuntu24.04-r5"
+  },
+  "checksummed_files": 2557
+ },
+ "files": [
+  {
+   "path": "BASES.tsv",
+   "size": 262,
+   "sha256": "ce011151a1645dd3a27fa69b69817c72f341d5bc270492275eda163dbe6a7f7e",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "BUILD_OFFLINE.sh",
+   "size": 8856,
+   "sha256": "6ab4f08a6ec775b32d854f03413b30ecfe555ddba78cf0de956235f5a2a39542",
+   "lines": 162,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "CHECKSUMS.sha256",
+   "size": 352594,
+   "sha256": "9e09a2e94312f5e9d063fbe9bf3b8fcf1bf687fe12b83936c1aa3c44f96e82f4",
+   "lines": 2557,
+   "public": "account",
+   "stored": "gzip"
+  },
+  {
+   "path": "DOCKERFILE_NAME.txt",
+   "size": 26,
+   "sha256": "9aadd1ede68e016a6f163c97befc5ff2fcdc8ebd4f84b108dba63cb195fa8c84",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "Dockerfile",
+   "size": 10909,
+   "sha256": "55b6b6960e9a8df96ada16046d429de333ea65a2fda7c9f92baff7f146dbbdf9",
+   "lines": 113,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline",
+   "size": 10909,
+   "sha256": "55b6b6960e9a8df96ada16046d429de333ea65a2fda7c9f92baff7f146dbbdf9",
+   "lines": 113,
+   "public": "account"
+  },
+  {
+   "path": "Dockerfile.offline.pinned",
+   "size": 10909,
+   "sha256": "55b6b6960e9a8df96ada16046d429de333ea65a2fda7c9f92baff7f146dbbdf9",
+   "lines": 113,
+   "public": "preview",
+   "preview_lines": 24
+  },
+  {
+   "path": "Dockerfile.vendor",
+   "size": 17453,
+   "sha256": "62cfad427128ece57e4d33c51682b9fd2e66d47f8f784cb794c1e46ef293f8e0",
+   "lines": 167,
+   "public": "account"
+  },
+  {
+   "path": "FILE_MODES.tsv",
+   "size": 213436,
+   "sha256": "3215e614b5de84e62849e886aa0a587fb3a55163738c299861d4e759da7ccab4",
+   "lines": 2972,
+   "public": "account"
+  },
+  {
+   "path": "MANIFEST.txt",
+   "size": 178748,
+   "sha256": "9941290944829fe01133431d736ffe755da7bc820550220848d9b491c0d2e0c0",
+   "lines": 2559,
+   "public": "account"
+  },
+  {
+   "path": "README.md",
+   "size": 3283,
+   "sha256": "34529e6197ea9c26ed8d8a851b5b40a2e981cb4951ffc063472e220582f168aa",
+   "lines": 39,
+   "public": "account"
+  },
+  {
+   "path": "SOURCE_DATE_EPOCH.txt",
+   "size": 11,
+   "sha256": "81f815ef1fe38fd9bb3481e1b60bd6770b1afb8fa69beb6584a1710a1e9477d9",
+   "lines": 1,
+   "public": "full"
+  },
+  {
+   "path": "TARGET_DIGEST.txt",
+   "size": 435,
+   "sha256": "ba237387594bba500ec1908ebb8e9f73704b528204dd2e968a6b2f49ae66d2d9",
+   "lines": 8,
+   "public": "full"
+  },
+  {
+   "path": "VERIFY_OFFLINE.sh",
+   "size": 10153,
+   "sha256": "3e8184ea230cfd8f41f977e26be6bf7bd03112c396c517837ce0c7de4f7399dd",
+   "lines": 165,
+   "public": "account"
+  },
+  {
+   "path": "configuration.py",
+   "size": 22072,
+   "sha256": "93831463434266678f0814645e78fadea47126c6664608dd2796419796bfd76a",
+   "lines": 398,
+   "public": "account"
+  },
+  {
+   "path": "constraints.txt",
+   "size": 1393,
+   "sha256": "22d7e8029210197426dc6b3891dc0847430c1d7774c5694aaa7d2844246f40e1",
+   "lines": 16,
+   "public": "account"
+  },
+  {
+   "path": "docs/PROVENANCE.md",
+   "size": 2662,
+   "sha256": "7ef7eeaafe9d01a2c9a5f5c33c19888d02ada8eba67198df8b64f7e5f3eac7dd",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "docs/REBUILD.md",
+   "size": 6116,
+   "sha256": "f6bcc981abe8f466441789792bb3f3d6690f4204df122fd5adb5635c467abee2",
+   "lines": 62,
+   "public": "account"
+  },
+  {
+   "path": "docs/VERIFY.md",
+   "size": 2022,
+   "sha256": "2b0017f5157b902714af9f3eed64be38b363640dd260627777157b9f509ddf67",
+   "lines": 34,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/BASE_IMAGE_DIGESTS.lock",
+   "size": 49,
+   "sha256": "29ed82d2e65f3410fb72f602ebe2724647a8d565570444ecf8d50fd074e4ad44",
+   "lines": 2,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/BUILD_RECIPE.json",
+   "size": 4236,
+   "sha256": "8372603d5e55953d635f6ffa84dbe19a15d4887d9fb91c411ae19d75032f8a02",
+   "lines": 102,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/CUSTODY_INPUTS.json",
+   "size": 654,
+   "sha256": "371d70faf7416a8b1457cc88601b1a6b5f31016c6bae098077af7d2ed426d0dd",
+   "lines": 17,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_FILE_MANIFEST.json",
+   "size": 110286,
+   "sha256": "1f51a25cd5f3e222599dff288c014e4e4442d17f90b2efe8fffbad5d93fb139d",
+   "lines": 2313,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/SOURCE_TREE_HASH.json",
+   "size": 312,
+   "sha256": "f58a430e4413267ed2299f1f1e52d85ddb1dd0e8a7251be05487c506049c20d4",
+   "lines": 9,
+   "public": "full"
+  },
+  {
+   "path": "docs/provenance/SYSTEM_PINNING.lock",
+   "size": 1646,
+   "sha256": "b49768eaa5b1bfef4fcb88495a67bc48ecb938a75be5652540e2a04ebeca3ab2",
+   "lines": 53,
+   "public": "account"
+  },
+  {
+   "path": "docs/provenance/TOOLCHAIN.lock",
+   "size": 1644,
+   "sha256": "7295d455bb59d774b792ca8481e458669a4bdd20ca405261bd055c99a2840374",
+   "lines": 55,
+   "public": "account"
+  },
+  {
+   "path": "entrypoint.sh",
+   "size": 1980,
+   "sha256": "3d93a79f814bc96dca6d59920103e060a6c337ef70fc98478c52dab0f0f047fc",
+   "lines": 37,
+   "public": "account"
+  },
+  {
+   "path": "gunicorn.py",
+   "size": 129,
+   "sha256": "20a2f4b07c5616fa4693df56f97e16e465bea3873003f755fe3e9d3e42a7d69e",
+   "lines": 7,
+   "public": "account"
+  },
+  {
+   "path": "readystack_wsgi.py",
+   "size": 879,
+   "sha256": "dde7feccabf793d753f415b1e1c152d1aa66bfb69b178e76286d5dea3e0c61c6",
+   "lines": 14,
+   "public": "account"
+  },
+  {
+   "path": "rebuild.json",
+   "size": 1498,
+   "sha256": "55474cd6b91b1f4bc76b4957ac5df8878ccc1392ece4ebef3c026bf5feec649e",
+   "lines": 36,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.go",
+   "size": 3179,
+   "sha256": "a8bdee17a3581f8685f58d7a8ccb7524153829f70b19c9d75e323c589de2ad8f",
+   "lines": 117,
+   "public": "account"
+  },
+  {
+   "path": "rs-probe.mod",
+   "size": 40,
+   "sha256": "a480b79acf98e4275725058076ad2a8684a2eee06c27f4337b75339c198ca92d",
+   "lines": 3,
+   "public": "account"
+  },
+  {
+   "path": "super_user.py",
+   "size": 1905,
+   "sha256": "a61cfe30ca4ba3008d0c28716e9df323df3d04764134719e418490e23a06cb51",
+   "lines": 45,
+   "public": "account"
+  },
+  {
+   "path": "supervisor-netbox.conf",
+   "size": 585,
+   "sha256": "9f679883b4971c4023c69a7bcf07969b8cfde6090da5de86c0f4981b67ca8cf8",
+   "lines": 27,
+   "public": "account"
+  },
+  {
+   "path": "toolchain/BUILDKIT_TAG.txt",
+   "size": 22,
+   "sha256": "fcd530eeb02b063d2f047adad6eef896422a8e8d558513e5f09b2a262be32573",
+   "lines": 1,
+   "public": "full"
+  }
+ ],
+ "skipped": [],
+ "kit_adds": {
+  "bases": {
+   "files": 16,
+   "bytes": 330489911
+  },
+  "docs": {
+   "files": 2372,
+   "bytes": 73482382
+  },
+  "toolchain": {
+   "files": 1,
+   "bytes": 111529472
+  },
+  "vendored": {
+   "files": 135,
+   "bytes": 271933424
+  }
+ },
+ "redacted_files": 0
+}

@@ -1,0 +1,16 @@
+# NetBox CVE remediation — post-install --upgrade.
+PyJWT>=2.14.0,<3
+# Advisories published 2026-10-20, after chain 545 vendored; G8's OSV cross-check found them (Scout did not yet).
+# certifi (requests' CA bundle, 2026.7.22 resolved): GHSA-6q48-6c7w-9gw2, CRITICAL, emSign roots with compromised
+# intermediate CA keys, fixed in 2026.10.19. Date-versioned CA bundle with no API, so the floor needs no ceiling.
+certifi>=2026.10.19
+# Pillow (upstream pinned 12.3.0 through v4.7.3; v4.7.4 pins 13.0.0 itself): 7 advisories (1 CRITICAL GHSA-8g5g-8vmr-9782, 6 HIGH), fixed only in 13.0.0. 13.0's
+# removals (I-mode PNG clipping, get_child_images, Image._show, ImageCms product_*, IFD.Makernote, Python 3.10) are
+# not used by NetBox, Django's ImageField or sorl-thumbnail. Ceiling: never past the major the fix is in.
+Pillow>=13.0.0,<14
+# djangorestframework (upstream requirements.txt pinned 3.18.0 through v4.7.3; v4.7.4 pins 3.18.3 itself): GHSA-33wh-fxxf-88vv, GHSA-3547-9m27-7rxg, GHSA-xw6w-gcfp-cf8m
+# (all HIGH, published 2026-10-22), fixed only in 3.18.2. Same minor line; 3.18.3 is 3.18.2 plus one regression fix
+# (order_by_precedence restored). DRF 3.18 needs Django>=5.2 (NetBox v4.7.4 pins 6.1.2). Ceiling: the 3.18 line.
+djangorestframework>=3.18.2,<3.19
+# Serves /static/ inside the image (readystack_wsgi.py): NetBox serves no static files with DEBUG off. MIT.
+whitenoise==6.12.0
