@@ -1,7 +1,7 @@
 {
   "schema": "kitforge.build_recipe.v1",
   "slug": "netbox",
-  "image": "readystack/netbox:v4.7.4-CE-ubuntu24.04-r5",
+  "image": "readystack/netbox:v4.7.4-CE-ubuntu24.04-r6",
   "build_method": "source-rebuild-python",
   "source": {
     "repo": "https://github.com/netbox-community/netbox",
@@ -14,8 +14,8 @@
       "_note": "CPython 3.12.16 compiled from python.org's release tarball (sha256 from python.org's release API, scripts/cpython-pin.py) against Ubuntu 24.04's own libraries -- libssl3t64, libsqlite3-0, zlib1g, libexpat1, libffi8, liblzma5, libbz2-1.0, libuuid1, libzstd1, libncursesw6, libreadline8t64 -- which Ubuntu's security team maintains, the scan sees as debs, and apt upgrades fix (owner decision 2026-10-10, after python-build-standalone 20261009 was found to bundle SQLite 3.53.1 with two HIGH CVEs fixed upstream four months earlier). The vendor stage only fetches the tarball and the build toolchain's debs; the compile runs in the offline (--network=none) build, reproducibly (gen_dockerfile.cpython_build_cmd: SOURCE_DATE_EPOCH, no PGO/LTO, fixed --build triple and source path, stripped, checked-hash .pyc). Never built: _dbm, _gdbm, _tkinter (no Berkeley DB, GDBM or Tk); no test suite, idle, tkinter, turtledemo or static libpython in the image. mpdecimal is the copy in CPython's own source (noble has no libmpdec). Move the pin with scripts/cpython-pin.py --write for each CPython patch release."
     },
     "_source_note": "Source-rebuilt from the git tag in source.ref (Apache-2.0, latest stable GA). Deps = the pinned root requirements.txt (NOT uv/pyproject) -> pip install -r into /opt/venv + a post-install `pip install --upgrade -r constraints.txt` for CVE bumps. NO node/frontend build: netbox/project-static/dist ships prebuilt in the tag; static is gathered by `manage.py collectstatic` at BUILD time. Web server = gunicorn running readystack_wsgi:application (netbox.wsgi wrapped by WhiteNoise, which serves /static/), NOT granian. Config = a configuration.py env-shim (vendored from netbox-docker) since NetBox reads a Python config file, not env directly.",
-    "source_date_epoch": 1795404129,
-    "source_date_epoch_provenance": "the time release v4.7.4-CE-ubuntu24.04-r5 was cut (2026-11-23T03:22:09Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 9b9844bdbc22, dated 2026-10-27T15:35:37Z (source.commit_epoch).",
+    "source_date_epoch": 1795644330,
+    "source_date_epoch_provenance": "the time release v4.7.4-CE-ubuntu24.04-r6 was cut (2026-11-25T22:05:30Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 9b9844bdbc22, dated 2026-10-27T15:35:37Z (source.commit_epoch).",
     "commit": "9b9844bdbc226bc0bacff6bfdf65a824a4be0eec",
     "source_date_epoch_basis": "release-cut",
     "commit_epoch": 1793115337

@@ -1,14 +1,16 @@
-# Build kit for `readystack/netbox:v4.7.4-CE-ubuntu24.04-r5`
+# Build kit for `readystack/netbox:v4.7.4-CE-ubuntu24.04-r6`
 
-This archive rebuilds the linux/amd64 image `readystack/netbox:v4.7.4-CE-ubuntu24.04-r5` from its own contents, with the network off, and checks the result against the image digest ReadyStack published, `sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d` (also in `TARGET_DIGEST.txt`). It holds everything the build needs, not the image itself.
+This archive rebuilds the linux/amd64 image `readystack/netbox:v4.7.4-CE-ubuntu24.04-r6` from its own contents, with the network off, and checks the result against the image digest ReadyStack published, `sha256:055a7bfb0d5e5180f0d776dd796b2bff0619a866ee345a7e5d4d4b02e84b7dd9` (also in `TARGET_DIGEST.txt`). It holds everything the build needs, not the image itself.
+
+Every release of this kit, its recipe and its defect issues are published at https://github.com/readystack-dev/netbox; the product page is https://readystack.dev/products/netbox.
 
 ## Rebuild it
 
 You need linux/amd64 Docker with `buildx` 0.30 or later, `jq` and `tar` (docs/REBUILD.md lists the rest, if any, and the hardware ReadyStack used).
 
 ```
-tar -xpzf ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.tar.gz    # -p keeps each file's mode
-cd v4.7.4-CE-ubuntu24.04-r5
+tar -xpzf ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.tar.gz    # -p keeps each file's mode
+cd v4.7.4-CE-ubuntu24.04-r6
 ./BUILD_OFFLINE.sh            # builds with the network off, from this archive alone
 ./VERIFY_OFFLINE.sh           # compares the rebuilt digest with the published one, then checks the image
 ```
@@ -23,8 +25,8 @@ ReadyStack signs this archive's `rebuild.json` with its release key once the fin
 
 ```
 curl -fsSLo ../cosign.pub https://readystack.dev/keys/cosign.pub
-curl -fsSLo ../ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.rebuild.json.sigstore https://readystack.dev/api/kit/netbox/v4.7.4-CE-ubuntu24.04-r5/files/ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.rebuild.json.sigstore
-python3 docs/rebuild-bundle/rebuild_bundle.py validate . --key ../cosign.pub --signature ../ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.rebuild.json.sigstore
+curl -fsSLo ../ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.rebuild.json.sigstore https://readystack.dev/api/kit/netbox/v4.7.4-CE-ubuntu24.04-r6/files/ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.rebuild.json.sigstore
+python3 docs/rebuild-bundle/rebuild_bundle.py validate . --key ../cosign.pub --signature ../ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.rebuild.json.sigstore
 ```
 
 `validate` needs Python 3 and cosign. Without building anything it checks the signature over `rebuild.json`, every file's checksum, the tree hash over every file's path, mode and content, each base image layout's digest and the builder archive. `verify`, with the same arguments, also rebuilds with the builder's network egress blocked and exits 0 only when the rebuilt digest is the published one (docs/REBUILD.md).

@@ -2,7 +2,7 @@
 # CPython 3.12.16 COMPILED HERE, offline (--network=none), from python.org's tarball (sha256 re-checked) and
 # the vendored build debs, by the same command the vendor stage ran; linked against Ubuntu's libraries.
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS cpython
-ARG SOURCE_DATE_EPOCH=1795404129
+ARG SOURCE_DATE_EPOCH=1795644330
 ENV SOURCE_DATE_EPOCH=${SOURCE_DATE_EPOCH}
 COPY vendored/netbox-src/python/debs/ /tmp/cpython-debs/
 COPY vendored/netbox-src/python/Python-3.12.16.tar.xz /tmp/Python-3.12.16.tar.xz
@@ -53,7 +53,7 @@ FROM golang:1.27.4-bookworm@sha256:4fa7c968ba93f1635670522dbb01a2c78150443e13857
 WORKDIR /probe
 COPY rs-probe.go main.go
 COPY rs-probe.mod go.mod
-ENV CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS="-buildvcs=false" GOPROXY=off SOURCE_DATE_EPOCH=1795404129
+ENV CGO_ENABLED=0 GOTOOLCHAIN=local GOFLAGS="-buildvcs=false" GOPROXY=off SOURCE_DATE_EPOCH=1795644330
 RUN go build -trimpath -ldflags='-s -w' -o /rs-probe .
 
 # ---- rootfs: the chiselled Ubuntu 24.04 runtime (vendored/chisel, cut by Dockerfile.vendor's chiselcut stage from
@@ -61,7 +61,7 @@ RUN go build -trimpath -ldflags='-s -w' -o /rs-probe .
 #      Only /rootfs reaches the image. The cut's own dynamic loader, under chroot, must load every ELF file of the
 #      trees (gen_dockerfile.chisel_load_check): a library the slices miss fails the build, not the first start.
 FROM ubuntu:24.04@sha256:9c7f200c07e3d4a03e7249d2c16bf66a51120fb876aa2242cf31451412543289 AS rootfs
-ARG SOURCE_DATE_EPOCH=1795404129
+ARG SOURCE_DATE_EPOCH=1795644330
 ADD vendored/chisel/rootfs.tar /rootfs/
 RUN printf 'netbox:x:1000:1000::/opt/netbox:/bin/sh\n' >> /rootfs/etc/passwd && \
     printf 'netbox:x:1000:\n' >> /rootfs/etc/group && \
@@ -93,7 +93,7 @@ RUN --mount=type=bind,source=vendored/chisel,target=/chisel set -eu; \
     rm -rf /rootfs/var/log/dpkg.log /rootfs/var/log/alternatives.log /rootfs/var/log/apt /rootfs/var/cache/ldconfig/aux-cache /rootfs/var/cache/fontconfig
 
 FROM scratch
-ARG SOURCE_DATE_EPOCH=1795404129
+ARG SOURCE_DATE_EPOCH=1795644330
 COPY --from=rootfs /rootfs/ /
 ENV PATH=/opt/venv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin LANG=C.UTF-8 PYTHONDONTWRITEBYTECODE=1 PYTHONUNBUFFERED=1
 WORKDIR /opt/netbox/netbox
@@ -104,7 +104,7 @@ ENTRYPOINT ["/usr/local/bin/entrypoint.sh"]
 # the set a generated kit carries (gen_dockerfile.label_lines). Written by scripts/kit_migrations.py;
 # scripts/retarget.py re-renders it with every retarget. Never edit it by hand.
 LABEL org.opencontainers.image.title="NetBox"
-LABEL org.opencontainers.image.version="v4.7.4-CE-ubuntu24.04-r5"
+LABEL org.opencontainers.image.version="v4.7.4-CE-ubuntu24.04-r6"
 LABEL org.opencontainers.image.licenses="Apache-2.0"
 LABEL org.opencontainers.image.source="https://github.com/netbox-community/netbox"
 LABEL org.opencontainers.image.description="NetBox — the Apache-2.0 open-source network source-of-truth / DCIM + IPAM (Django)."

@@ -1,4 +1,4 @@
-# Provenance — NetBox (`v4.7.4-CE-ubuntu24.04-r5`)
+# Provenance — NetBox (`v4.7.4-CE-ubuntu24.04-r6`)
 
 Every item below is copied from a record in this archive; the record is named in brackets.
 
@@ -13,18 +13,18 @@ Every item below is copied from a record in this archive; the record is named in
 
 - Method: `source-rebuild-python`; base image `scratch + a chiselled Ubuntu 24.04 runtime (vendored/chisel/slices.txt, packages.tsv)`
 - Compiled with `--network=none` from vendored source, dependencies and base images; BuildKit pinned to `moby/buildkit:v0.31.2` (shipped in `toolchain/`).
-- SOURCE_DATE_EPOCH: `1795404129` [`SOURCE_DATE_EPOCH.txt`]
+- SOURCE_DATE_EPOCH: `1795644330` [`SOURCE_DATE_EPOCH.txt`]
 - Frozen inputs: [`docs/provenance/FREEZE_MANIFEST.json`], build recipe: [`docs/provenance/BUILD_RECIPE.json`].
 
 ## Output
 
-- Published image: `readystack/netbox:v4.7.4-CE-ubuntu24.04-r5` — index digest `sha256:911243fe201b87f998406524b06d245a26a8f4171c4e3effc1209aadbceefe21` [`docs/provenance/LOCKED_DIGEST.txt`]
-- linux/amd64 image digest `sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
+- Published image: `readystack/netbox:v4.7.4-CE-ubuntu24.04-r6` — index digest `sha256:65cfe8ec9541d9e0b2b609148eca7733214a650f767590a8186fc18584e0a080` [`docs/provenance/LOCKED_DIGEST.txt`]
+- linux/amd64 image digest `sha256:055a7bfb0d5e5180f0d776dd796b2bff0619a866ee345a7e5d4d4b02e84b7dd9` — reproduced from this archive before publishing [`docs/provenance/REPRO_VERIFICATION.json`].
 
 ## Attestations and signature
 
 - SBOM + SLSA provenance attached to the image: attached: an SPDX SBOM and SLSA v1 provenance [`docs/provenance/SCOUT_VERDICT.json`]
-- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/netbox:v4.7.4-CE-ubuntu24.04-r5`
+- cosign signature by the ReadyStack release key: verified before publishing. Check it: `cosign verify --key https://readystack.dev/keys/cosign.pub readystack/netbox:v4.7.4-CE-ubuntu24.04-r6`
 
 ## Pinned inputs, and why
 
@@ -32,5 +32,5 @@ Every item below is copied from a record in this archive; the record is named in
 
 ## Build trail
 
-- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.trail.json`, published beside this archive and signed with the release key (`ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.trail.json.sigstore`), and readable at https://readystack.dev/products/netbox/trail/v4.7.4-CE-ubuntu24.04-r5.
+- How this release passed through the ReadyStack harness, record by record (every chain, drive, stage, review round, defect and check, each naming the record it is copied from): `ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.trail.json`, published beside this archive and signed with the release key (`ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.trail.json.sigstore`), and readable at https://readystack.dev/products/netbox/trail/v4.7.4-CE-ubuntu24.04-r6.
 

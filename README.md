@@ -6,13 +6,13 @@
 
 # NetBox: ReadyStack build kit
 
-The offline build kit for the Docker image `readystack/netbox:v4.7.4-CE-ubuntu24.04-r5`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
+The offline build kit for the Docker image `readystack/netbox:v4.7.4-CE-ubuntu24.04-r6`. It holds what the image is built from (upstream source, base images, toolchain, pinned dependencies) and the documents, so the image can be rebuilt with no network access (`docker build --network=none`).
 
-- Release: [v4.7.4-CE-ubuntu24.04-r5](https://github.com/readystack-dev/netbox/releases/tag/v4.7.4-CE-ubuntu24.04-r5)
-- Image: [`docker.io/readystack/netbox:v4.7.4-CE-ubuntu24.04-r5`](https://hub.docker.com/r/readystack/netbox/tags), manifest digest `sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d`
+- Release: [v4.7.4-CE-ubuntu24.04-r6](https://github.com/readystack-dev/netbox/releases/tag/v4.7.4-CE-ubuntu24.04-r6)
+- Image: [`docker.io/readystack/netbox:v4.7.4-CE-ubuntu24.04-r6`](https://hub.docker.com/r/readystack/netbox/tags), manifest digest `sha256:055a7bfb0d5e5180f0d776dd796b2bff0619a866ee345a7e5d4d4b02e84b7dd9`
 - Product page: https://readystack.dev/products/netbox
 - Source and build recipe: https://readystack.dev/products/netbox/recipe
-- Build trail: https://readystack.dev/products/netbox/trail/v4.7.4-CE-ubuntu24.04-r5
+- Build trail: https://readystack.dev/products/netbox/trail/v4.7.4-CE-ubuntu24.04-r6
 - Defects: this repository's Issues (defects recorded from 25 November 2026 on) and https://readystack.dev/defects.html?product=netbox
 
 ## The image
@@ -31,12 +31,12 @@ From the upstream project's own description: https://github.com/netbox-community
 
 ## This release
 
-- Docker Scout policy grade at release: **A** (94%), graded 2026-11-23 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
+- Docker Scout policy grade at release: **A** (94%), graded 2026-11-28 with `docker scout policy` (CLI 1.26.0, docker-default configuration).
   - Docker Scout counts 48 packages with copyleft licences (GPL, LGPL, MPL), 44 of them operating-system packages (it counts only packages whose licence it can read; the SBOM lists every component).
 - Signed with ReadyStack's release key (fingerprint `04daa92344a52dbc`): https://readystack.dev/keys/cosign.pub.
 - Runs as a non-root user (`netbox`).
 - Attestations on the image: an SPDX SBOM and SLSA provenance v1.
-- Rebuilt from this kit with network egress blocked on 2026-11-23; the rebuilt image digest is the published one.
+- Rebuilt from this kit with network egress blocked on 2026-11-28; the rebuilt image digest is the published one.
 - Base: Ubuntu 24.04.
 
 The current grade, measured again every day, is on https://readystack.dev/products/netbox.
@@ -45,7 +45,7 @@ NetBox is distributed under its upstream licence (Apache-2.0); the kit contains 
 
 ## Download
 
-From the [v4.7.4-CE-ubuntu24.04-r5 release](https://github.com/readystack-dev/netbox/releases/tag/v4.7.4-CE-ubuntu24.04-r5): `ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.tar.gz` (676.0 MB), SHA-256 `9bf7618e41ccddf78f91f6b39cf899f99b22da0d49fcc12d724a0a95a1c74e6b`.
+From the [v4.7.4-CE-ubuntu24.04-r6 release](https://github.com/readystack-dev/netbox/releases/tag/v4.7.4-CE-ubuntu24.04-r6): `ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.tar.gz` (676.1 MB), SHA-256 `d7850eac1461db4fd6d3a0dcc89170813876f56dfd5aee92c240e1c631751d9b`.
 
 ```sh
 sha256sum --check --ignore-missing SHA256SUMS
@@ -57,18 +57,18 @@ The rebuild statement is signed with the ReadyStack release key. Check the signa
 
 ```sh
 cosign verify-blob --key https://readystack.dev/keys/cosign.pub \
-  --bundle ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.rebuild.json.sigstore ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.rebuild.json
+  --bundle ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.rebuild.json.sigstore ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.rebuild.json
 ```
 
 Unpack with `-p` so file modes are kept, then follow the kit's own README.md and docs/REBUILD.md:
 
 ```sh
-tar -xpzf ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.tar.gz
-cd v4.7.4-CE-ubuntu24.04-r5
+tar -xpzf ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.tar.gz
+cd v4.7.4-CE-ubuntu24.04-r6
 less README.md docs/REBUILD.md
 ```
 
-The build trail (`ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r5.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
+The build trail (`ReadyStack-netbox-v4.7.4-CE-ubuntu24.04-r6.trail.json`, signed the same way, and its Markdown copy) records how this release was built and checked.
 
 ## This repository
 

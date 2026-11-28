@@ -1,6 +1,6 @@
 {
   "build_method": "source-rebuild-python",
-  "chain_id": 1198,
+  "chain_id": 1303,
   "dep_bumps": [],
   "expected_residuals": [],
   "images": [
@@ -47,9 +47,9 @@
     "python_version": "3.12",
     "ref": "v4.7.4",
     "repo": "https://github.com/netbox-community/netbox",
-    "source_date_epoch": 1795404129,
+    "source_date_epoch": 1795644330,
     "source_date_epoch_basis": "release-cut",
-    "source_date_epoch_provenance": "the time release v4.7.4-CE-ubuntu24.04-r5 was cut (2026-11-23T03:22:09Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 9b9844bdbc22, dated 2026-10-27T15:35:37Z (source.commit_epoch)."
+    "source_date_epoch_provenance": "the time release v4.7.4-CE-ubuntu24.04-r6 was cut (2026-11-25T22:05:30Z), by scripts/rerelease-agenda.py: ReadyStack dates an image by when its release was packaged (owner 2026-11-10), recorded here once and used by every rebuild of the release; it builds upstream commit 9b9844bdbc22, dated 2026-10-27T15:35:37Z (source.commit_epoch)."
   },
   "version": "v4.7.4"
 }

@@ -1,6 +1,6 @@
-image_manifest_digest=sha256:e7cebf0061e802ca26618a5d3b17b0139d97e519ec0dfc3a9954fe3aa99dd38d
-config_digest=sha256:4d0719720c0ddc32a7be9513888c711bfe0e238c6086f955e3a2393303495c40
-tag=readystack/netbox:v4.7.4-CE-ubuntu24.04-r5
+image_manifest_digest=sha256:055a7bfb0d5e5180f0d776dd796b2bff0619a866ee345a7e5d4d4b02e84b7dd9
+config_digest=sha256:a41ba2ec545c855c15f34cbb339506cf2e6318b10ac0965c114fb0c109c3772a
+tag=readystack/netbox:v4.7.4-CE-ubuntu24.04-r6
 probe_port=8080
 probe_path=/login/
 probe_timeout=1200
